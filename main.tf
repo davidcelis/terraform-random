@@ -1,11 +1,15 @@
-resource "random_id" "random" {
+variable "keeper" {
+  default = "default"
+}
+
+resource "random_id" "not_as_random" {
   keepers {
-    uuid = "${uuid()}"
+    var = "${var.keeper}"
   }
 
   byte_length = 8
 }
 
-output "random" {
-  value = "${random_id.random.hex}"
+output "not_as_random" {
+  value = "${random_id.not_as_random.hex}"
 }

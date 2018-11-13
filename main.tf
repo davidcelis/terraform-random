@@ -1,15 +1,3 @@
-resource "random_pet" "random" {
-  keepers {
-    uuid = "${uuid()}"
-  }
-
-  length = 2
-}
-
-output "random_pet" {
-  value = "${random_pet.random.id}"
-}
-
 resource "random_id" "random" {
   keepers {
     uuid = "${uuid()}"
